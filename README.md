@@ -34,7 +34,7 @@ Input Video (30+ min)
 pip install -r requirements.txt
 
 # 2. Run on any video file
-python extract_highlights.py your_video.mp4
+python main.py your_video.mp4
 ```
 
 This produces two files next to your video:
@@ -54,7 +54,7 @@ This produces two files next to your video:
 ## All Options
 
 ```
-python extract_highlights.py video.mp4 [OPTIONS]
+python main.py video.mp4 [OPTIONS]
 
   --variant {heuristic,surprisal,attention}   Detection method (default: heuristic)
   --target SECONDS        Target clip length (default: 60)
@@ -70,13 +70,13 @@ python extract_highlights.py video.mp4 [OPTIONS]
 
 ```bash
 # Sports game — use attention variant, allow 90s clip
-python extract_highlights.py game.mp4 --variant attention --target 90
+python main.py game.mp4 --variant attention --target 90
 
 # Lecture — more sensitive detection
-python extract_highlights.py lecture.mp4 --threshold 1.0
+python main.py lecture.mp4 --threshold 1.0
 
 # Quick test — fewer segments, strict threshold
-python extract_highlights.py vlog.mp4 --threshold 2.5 --target 30
+python main.py vlog.mp4 --threshold 2.5 --target 30
 ```
 
 ## Requirements
@@ -88,7 +88,7 @@ python extract_highlights.py vlog.mp4 --threshold 2.5 --target 30
 ## Project Structure
 
 ```
-extract_highlights.py   Main CLI entry point & orchestrator
+main.py                 Main CLI entry point & orchestrator
 video_features.py       Visual feature extraction (motion + optical flow)
 audio_features.py       Audio feature extraction (RMS + spectral flux)
 dsp_pipeline.py         Signal normalization, SG-filtering, adaptive thresholds
